@@ -30,32 +30,34 @@
         @csrf
         <input type="hidden" name="id" value="{{ $letter->id ?? '' }}">
         <div class="form-group">
-          <label>Divisi: </label>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" id="akpres" name="division" value="1" @if(isset($letter->division)) {{ $letter->division == 1 ? 'checked' : ''}} @endif>
-            <label class="form-check-label" for="akpres">
-              Akademik dan Prestasi
-            </label>
+          @if( $job == 'create' )
+            <label>Divisi: </label>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" id="akpres" name="division" value="1" @if(isset($letter->division)) {{ $letter->division == 1 ? 'checked' : ''}} @endif>
+              <label class="form-check-label" for="akpres">
+                Akademik dan Prestasi
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" id="inovasi" name="division" value="2" @if(isset($letter->division)) {{ $letter->division == 2 ? 'checked' : ''}} @endif>
+              <label class="form-check-label" for="inovasi">
+                Inovasi
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" id="medfo" name="division" value="3" @if(isset($letter->division)) {{ $letter->division == 3 ? 'checked' : ''}} @endif>
+              <label class="form-check-label" for="medfo">
+                Media Informasi
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" id="pubrel" name="division" value="4" @if(isset($letter->division)) {{ $letter->division == 4 ? 'checked' : ''}} @endif>
+              <label class="form-check-label" for="pubrel">
+                Relasi Publik
+              </label>
+            </div>
           </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" id="inovasi" name="division" value="2" @if(isset($letter->division)) {{ $letter->division == 2 ? 'checked' : ''}} @endif>
-            <label class="form-check-label" for="inovasi">
-              Inovasi
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" id="medfo" name="division" value="3" @if(isset($letter->division)) {{ $letter->division == 3 ? 'checked' : ''}} @endif>
-            <label class="form-check-label" for="medfo">
-              Media Informasi
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" id="pubrel" name="division" value="4" @if(isset($letter->division)) {{ $letter->division == 4 ? 'checked' : ''}} @endif>
-            <label class="form-check-label" for="pubrel">
-              Relasi Publik
-            </label>
-          </div>
-        </div>
+        @endif
         <div class="form-group">
           <label for="event_name">Nama kegiatan: </label>
           <input type="text" class="form-control" name="event_name" id="event_name" placeholder="mis: Comblangin Inovasi" value="{{ $letter->event_name ?? '' }}">

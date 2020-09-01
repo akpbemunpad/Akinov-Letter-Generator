@@ -195,8 +195,6 @@ class BasicLetterController extends Controller
 
         Storage::delete('public/' . $letter->file_name);
         
-        $letter->division = $request->division;
-        $letter->letter_type = $basicSeasonings[ $request->division - 1];
         $letter->event_name = $request->event_name;
         $letter->event_description = $request->event_description;
         $letter->event_date = $request->event_date;
